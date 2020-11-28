@@ -1,0 +1,59 @@
+/** SRB2 CMake Configuration */
+
+#ifndef __CONFIG_H__
+#define __CONFIG_H__
+
+/* DO NOT MODIFY config.h DIRECTLY! It will be overwritten by cmake.
+ * If you want to change a configuration option here, modify it in
+ * your CMakeCache.txt. config.h.in is used as a template for CMake
+ * variables, so you can insert them here too.
+ */
+
+#ifdef CMAKECONFIG
+
+// Base SRB2 hashes
+#define ASSET_HASH_SRB2_SRB      "${SRB2_ASSET_srb2.srb_HASH}"
+#ifdef USE_PATCH_DTA
+#define ASSET_HASH_PATCH_DTA     "${SRB2_ASSET_patch.dta_HASH}"
+#endif
+
+// SRB2Kart-specific hashes
+#define ASSET_HASH_GFX_KART      "${SRB2_ASSET_gfx.kart_HASH}"
+#define ASSET_HASH_TEXTURES_KART "${SRB2_ASSET_textures.kart_HASH}"
+#define ASSET_HASH_CHARS_KART    "${SRB2_ASSET_chars.kart_HASH}"
+#define ASSET_HASH_MAPS_KART     "${SRB2_ASSET_maps.kart_HASH}"
+#ifdef USE_PATCH_KART
+#define ASSET_HASH_PATCH_KART    "${SRB2_ASSET_patch.kart_HASH}"
+#endif
+
+#define SRB2_COMP_REVISION       "${SRB2_COMP_REVISION}"
+#define SRB2_COMP_BRANCH         "${SRB2_COMP_BRANCH}"
+
+#define CMAKE_ASSETS_DIR         "${CMAKE_SOURCE_DIR}/assets"
+
+#else
+
+/* Manually defined asset hashes for non-CMake builds
+ * Last updated 2015 / 05 / 03 - SRB2 v2.1.15 - srb2.srb
+ * Last updated 2018 / 12 / 23 - SRB2 v2.1.22 - patch.dta
+ * Last updated 2019 / 01 / 18 - Kart v1.0.2 - Main assets
+ * Last updated 2020 / 08 / 30 - Kart v1.3 - patch.kart
+ */
+
+// Base SRB2 hashes
+#define ASSET_HASH_SRB2_SRB      "c1b9577687f8a795104aef4600720ea7"
+#ifdef USE_PATCH_DTA
+#define ASSET_HASH_PATCH_DTA     "b04fd9624bfd94dc96dcf4f400f7deb4"
+#endif
+
+// SRB2Kart-specific hashes
+#define ASSET_HASH_GFX_KART      "99c39f223d84ebc78e67ab68f3bead95"
+#define ASSET_HASH_TEXTURES_KART "ec8e9b7535cf585afe72ef277b08f490"
+#define ASSET_HASH_CHARS_KART    "e2c428347dde52858a3dacd29fc5b964"
+#define ASSET_HASH_MAPS_KART     "1335cd064656aedca359cfbb5233ac4a"
+#ifdef USE_PATCH_KART
+#define ASSET_HASH_PATCH_KART    "f7b68076f8abc54e1a78963d97f69ab2"
+#endif
+
+#endif
+#endif
