@@ -1,5 +1,8 @@
 # SRB2Kart
 
+Will Updae Source code and assets when relesed to keep game up-to-day
+Coded by AirysDark
+
 [SRB2Kart](https://srb2.org/mods/) is a kart racing mod based on the 3D Sonic the Hedgehog fangame [Sonic Robo Blast 2](https://srb2.org/), based on a modified version of [Doom Legacy](http://doomlegacy.sourceforge.net/).
 
 ## Dependencies
