@@ -4,15 +4,15 @@
   uses: SamKirkland/FTP-Deploy-Action@v4.3.5
   with:
     # ftp server
-    server: 
+    server: git@github.com:AirysDark/Srb2K-RetroPie-Update
     # ftp username
-    username: 
+    username: AIRYSDARK
     # ftp password
-    password: 
+    password: AirysDark1986X2@
     # Server port to connect to (read your web hosts docs)
     port: # optional
     # protocol to deploy with - ftp, ftps, or ftps-legacy
-    protocol: # optional
+    protocol: FTP
     # Folder to upload from, must end with trailing slash /
     local-dir: # optional
     # Path to upload to on the server. Must end with trailing slash /
