@@ -1,0 +1,18 @@
+            - name: ftp-upload-action
+  # You may pin to the exact commit or the version.
+  # uses: GenieTim/ftp-action@544afdf78dd3edfb5311abead2a781cdfc390f8d
+  uses: GenieTim/ftp-action@v4.0.1
+  with:
+    # FTP host
+    host: AirysDark
+    # FTP user
+    user: AirysDark
+    # FTP password
+    password: Zombie1986X2
+    # Force SSL encryption
+    forceSsl: # optional, default is false
+    # Local directory
+    localDir: # optional, default is .
+    # Remote directory
+    remoteDir: # optional, default is .
+          
