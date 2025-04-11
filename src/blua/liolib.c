@@ -19,6 +19,7 @@
 #include "lualib.h"
 #include "../i_system.h"
 #include "../doomdef.h"
+#include "../d_main.h"
 #include "../m_misc.h"
 
 
@@ -190,7 +191,7 @@ static int io_open (lua_State *L) {
 		return pushresult(L,0,filename);
 	}
 
-	destFilename = va("luafiles"PATHSEP"%s", filename);
+	destFilename = va("%s"PATHSEP"luafiles"PATHSEP"%s", srb2home, filename);
 
 	// Make directories as needed
 	splitter = destFilename;
@@ -444,7 +445,6 @@ static int io_readline (lua_State *L) {
 static int g_write (lua_State *L, FILE *f, int arg) {
   int nargs = lua_gettop(L) - 1;
   int status = 1;
-  size_t count;
   for (; nargs--; arg++) {
     if (lua_type(L, arg) == LUA_TNUMBER) {
       /* optimization: could be done exactly as for strings */
@@ -454,7 +454,6 @@ static int g_write (lua_State *L, FILE *f, int arg) {
     else {
       size_t l;
       const char *s = luaL_checklstring(L, arg, &l);
-	  count += l;
 	  if (ftell(f) + l > FILELIMIT)
 	  {
 		luaL_error(L,"write limit bypassed in file. Changes have been discarded.");
