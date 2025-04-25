@@ -340,7 +340,7 @@ OPTS += -DCOMPVERSION
 
 ifndef NONX86
 ifndef GCC29
-	ARCHOPTS?=-march=pentium
+	ARCHOPTS?=-msse3 -mfpmath=sse
 else
 	ARCHOPTS?=-mpentium
 endif
@@ -440,8 +440,8 @@ endif
 
 ifdef HAVE_DISCORDRPC
 LIBS+=-ldiscord-rpc
-CFLAGS+=-DHAVE_DISCORDRPC
-OBJS+=$(OBJDIR)/discord.o
+CFLAGS+=-DHAVE_DISCORDRPC -DUSE_STUN
+OBJS+=$(OBJDIR)/discord.o $(OBJDIR)/stun.o
 endif
 
 ifndef NO_LUA
@@ -515,6 +515,10 @@ ifdef ZDEBUG
 	CPPFLAGS+=-DZDEBUG
 endif
 
+ifdef DUMPCONSISTENCY
+	CPPFLAGS+=-DDUMPCONSISTENCY
+endif
+
 ifdef DEVELOP
 	CPPFLAGS+=-DDEVELOP
 endif
@@ -583,6 +587,7 @@ OBJS:=$(i_main_o) \
 		$(OBJDIR)/r_bsp.o    \
 		$(OBJDIR)/r_data.o   \
 		$(OBJDIR)/r_draw.o   \
+		$(OBJDIR)/r_fps.o    \
 		$(OBJDIR)/r_main.o   \
 		$(OBJDIR)/r_plane.o  \
 		$(OBJDIR)/r_segs.o   \
@@ -598,6 +603,7 @@ OBJS:=$(i_main_o) \
 		$(OBJDIR)/mserv.o    \
 		$(OBJDIR)/http-mserv.o\
 		$(OBJDIR)/i_tcp.o    \
+		$(OBJDIR)/i_time.o   \
 		$(OBJDIR)/lzf.o	     \
 		$(OBJDIR)/vid_copy.o \
 		$(OBJDIR)/b_bot.o \

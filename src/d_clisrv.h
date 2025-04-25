@@ -35,13 +35,7 @@ applications may follow different packet versions.
 
 // SOME numpty changed all the gametype constants and it fell out of sync with vanilla and now we have to pretend to be vanilla when talking to the master server...
 #define VANILLA_GT_RACE 2
-// Woah, what do these numbers mean? 200 refers to SRB2 2.0, 246 refers to
-// SRB2Riders. Both use the old 2.0 gametype numbers.
-#if VERSION == 200 || VERSION == 246
-#define VANILLA_GT_MATCH 1
-#else
 #define VANILLA_GT_MATCH 3
-#endif
 
 // Networking and tick handling related.
 #define BACKUPTICS 32
@@ -282,6 +276,10 @@ typedef struct
 	INT32 onconveyor;
 
 	tic_t jointime;
+	tic_t spectatorreentry;
+
+	tic_t grieftime;
+	UINT8 griefstrikes;
 
 	UINT8 splitscreenindex;
 
@@ -504,11 +502,15 @@ typedef struct
 
 extern serverelem_t serverlist[MAXSERVERLIST];
 extern UINT32 serverlistcount;
+extern UINT32 serverlistultimatecount;
 extern INT32 mapchangepending;
 
 // Points inside doomcom
 extern doomdata_t *netbuffer;
+extern consvar_t cv_stunserver;
 extern consvar_t cv_httpsource;
+extern consvar_t cv_kicktime;
+
 extern consvar_t cv_showjoinaddress;
 extern consvar_t cv_playbackspeed;
 
@@ -522,17 +524,18 @@ extern consvar_t cv_playbackspeed;
 #define KICK_MSG_TIMEOUT     4
 #define KICK_MSG_BANNED      5
 #define KICK_MSG_PING_HIGH   6
-#define KICK_MSG_CUSTOM_KICK 7
-#define KICK_MSG_CUSTOM_BAN  8
+#define KICK_MSG_GRIEF       7
+#define KICK_MSG_CUSTOM_KICK 8
+#define KICK_MSG_CUSTOM_BAN  9
 
 typedef enum
 {
-	KR_KICK          = 1, //Kicked by server
-	KR_PINGLIMIT     = 2, //Broke Ping Limit
-	KR_SYNCH         = 3, //Synch Failure
-	KR_TIMEOUT       = 4, //Connection Timeout
-	KR_BAN           = 5, //Banned by server
-	KR_LEAVE         = 6, //Quit the game
+	KR_KICK = 1, //Kicked by server
+	KR_PINGLIMIT, //Broke Ping Limit
+	KR_SYNCH, //Synch Failure
+	KR_TIMEOUT, //Connection Timeout
+	KR_BAN, //Banned by server
+	KR_LEAVE, //Quit the game
 
 } kickreason_t;
 
@@ -592,6 +595,7 @@ void CL_ClearPlayer(INT32 playernum);
 void CL_RemovePlayer(INT32 playernum, INT32 reason);
 void CL_QueryServerList(msg_server_t *list);
 void CL_UpdateServerList(void);
+void CL_TimeoutServerList(void);
 // Is there a game running
 boolean Playing(void);
 
@@ -600,7 +604,7 @@ boolean Playing(void);
 void D_QuitNetGame(void);
 
 //? How many ticks to run?
-void TryRunTics(tic_t realtic);
+boolean TryRunTics(tic_t realtic);
 
 // extra data for lmps
 // these functions scare me. they contain magic.
