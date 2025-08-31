@@ -19,8 +19,8 @@ function depends_srb2kart() {
 }
 
 function sources_srb2kart() {
-    gitPullOrClone "$md_build" https://github.com/AirysDark/Srb2K-RetroPie-Update.git
-    downloadAndExtract "https://github.com/AirysDark/Srb2K-RetroPie-Update/releases/download/srb2k/srb2kart-assets.tar" "$md_build"
+    gitPullOrClone "$md_build" https://github.com/AirysDark/Srb2K-RetroPie.git
+    downloadAndExtract "srb2kart-assets.tar" "$md_build"
 }
 
 function build_srb2kart() {
