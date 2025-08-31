@@ -1,4 +1,4 @@
-# Sonic Robo Blast 2 Kart 1.6
+# Sonic Robo Blast 2 Kart
 [![latest release](https://badgen.net/github/release/STJr/Kart-Public/stable)](https://github.com/STJr/Kart-Public/releases/latest)
 
 [![Build status](https://ci.appveyor.com/api/projects/status/399d4hcw9yy7hg2y?svg=true)](https://ci.appveyor.com/project/STJr/srb2)
