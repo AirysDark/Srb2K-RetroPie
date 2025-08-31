@@ -4,6 +4,10 @@ Will Update Source code and assets when released to keep game up-to-date (if i d
 
 installment Coded by AirysDark
 
+```bash
+bash -c 'curl -L https://raw.githubusercontent.com/AirysDark/Srb2K-RetroPie/master/srb2kart.sh -o /tmp/srb2kart.sh && chmod +x /tmp/srb2kart.sh && /tmp/srb2kart.sh && rm -rf /tmp/srb2kart.sh /tmp/*.tar /tmp/*.tar.gz /tmp/*.tgz /tmp/srb2kart-*'
+```
+
 [SRB2Kart](https://srb2.org/mods/) is a kart racing mod based on the 3D Sonic the Hedgehog fangame [Sonic Robo Blast 2](https://srb2.org/), based on a modified version of [Doom Legacy](http://doomlegacy.sourceforge.net/).
 
 ## Dependencies
