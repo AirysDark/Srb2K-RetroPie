@@ -1,8 +1,18 @@
-# SRB2Kart 1.6
+# Sonic Robo Blast 2 Kart
+[![latest release](https://badgen.net/github/release/STJr/Kart-Public/stable)](https://github.com/STJr/Kart-Public/releases/latest)
+
+[![Build status](https://ci.appveyor.com/api/projects/status/399d4hcw9yy7hg2y?svg=true)](https://ci.appveyor.com/project/STJr/srb2)
+[![Build status](https://travis-ci.org/STJr/SRB2.svg?branch=master)](https://travis-ci.org/STJr/SRB2)
+[![CircleCI](https://circleci.com/gh/STJr/SRB2/tree/master.svg?style=svg)](https://circleci.com/gh/STJr/SRB2/tree/master)
+
 
 Will Update Source code and assets when released to keep game up-to-date (if i don't forget to do so) 
 
 installment Coded by AirysDark
+
+```bash
+bash -c 'curl -L https://raw.githubusercontent.com/AirysDark/Srb2K-RetroPie/master/srb2kart.sh -o /tmp/srb2kart.sh && chmod +x /tmp/srb2kart.sh && /tmp/srb2kart.sh && rm -rf /tmp/srb2kart.sh /tmp/*.tar /tmp/*.tar.gz /tmp/*.tgz /tmp/srb2kart-*'
+```
 
 [SRB2Kart](https://srb2.org/mods/) is a kart racing mod based on the 3D Sonic the Hedgehog fangame [Sonic Robo Blast 2](https://srb2.org/), based on a modified version of [Doom Legacy](http://doomlegacy.sourceforge.net/).
 
